@@ -6,6 +6,9 @@ target 'IOSMessenger' do
   use_frameworks!
 
   # Pods for IOSMessenger
+  pod 'Firebase/Core'
+  pod 'Firebase/Auth'
+  pod 'Firebase/Database'
 
   target 'IOSMessengerTests' do
     inherit! :search_paths
