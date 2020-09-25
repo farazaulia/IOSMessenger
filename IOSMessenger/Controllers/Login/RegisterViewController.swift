@@ -19,7 +19,7 @@ class RegisterViewController: UIViewController {
     
     private let imageView: UIImageView = {
         let imageView = UIImageView()
-        imageView.image = UIImage(systemName: "person")
+        imageView.image = UIImage(systemName: "person.crop.circle")
         imageView.tintColor = .gray
         imageView.contentMode = .scaleAspectFit
         imageView.layer.masksToBounds = true
@@ -200,22 +200,27 @@ class RegisterViewController: UIViewController {
         
         // Firebase log in
         
-        FirebaseAuth.Auth.auth().createUser(withEmail: email, password: password) { (authResult, error) in
+        FirebaseAuth.Auth.auth().createUser(withEmail: email, password: password) { [weak self] (authResult, error) in
+            guard let self = self else { return }
+            
             guard let result = authResult, error == nil else {
-                print("Error creating user")
+                self.alertUserLoginError(message: error?.localizedDescription ?? "Failed to create user")
                 return
             }
             
             let user = result.user
-            print("Created User: \(user)")
             
+            
+            DatabaseManager.shared.storeUser(with: ChatAppUser(uid: user.uid, firstName: firstName, lastName: lastName, email: email))
+            
+            self.navigationController?.dismiss(animated: true, completion: nil)
         }
         
     }
     
-    func alertUserLoginError() {
+    func alertUserLoginError(message: String = "Please enter all information to create a new account.") {
         let alert = UIAlertController(title: "Woops",
-                                      message: "Please enter all information to create a new account.",
+                                      message: message,
                                       preferredStyle: .alert)
         
         alert.addAction(UIAlertAction(title: "Dismiss",
