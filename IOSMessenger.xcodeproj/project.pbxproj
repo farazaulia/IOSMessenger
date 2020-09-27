@@ -15,9 +15,7 @@
 		85D0C2B9251C5DC100D41905 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85D0C2B8251C5DC100D41905 /* AppDelegate.swift */; };
 		85D0C2BB251C5DC100D41905 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85D0C2BA251C5DC100D41905 /* SceneDelegate.swift */; };
 		85D0C2BD251C5DC100D41905 /* ConversationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85D0C2BC251C5DC100D41905 /* ConversationViewController.swift */; };
-		85D0C2C0251C5DC100D41905 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 85D0C2BE251C5DC100D41905 /* Main.storyboard */; };
 		85D0C2C2251C5DC500D41905 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 85D0C2C1251C5DC500D41905 /* Assets.xcassets */; };
-		85D0C2C5251C5DC500D41905 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 85D0C2C3251C5DC500D41905 /* LaunchScreen.storyboard */; };
 		85D0C2D0251C5DC500D41905 /* IOSMessengerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85D0C2CF251C5DC500D41905 /* IOSMessengerTests.swift */; };
 		85D0C2DB251C5DC500D41905 /* IOSMessengerUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85D0C2DA251C5DC500D41905 /* IOSMessengerUITests.swift */; };
 		85D0C2EF251C5F9E00D41905 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85D0C2EE251C5F9E00D41905 /* LoginViewController.swift */; };
@@ -58,9 +56,7 @@
 		85D0C2B8251C5DC100D41905 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		85D0C2BA251C5DC100D41905 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
 		85D0C2BC251C5DC100D41905 /* ConversationViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConversationViewController.swift; sourceTree = "<group>"; };
-		85D0C2BF251C5DC100D41905 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		85D0C2C1251C5DC500D41905 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
-		85D0C2C4251C5DC500D41905 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		85D0C2C6251C5DC500D41905 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		85D0C2CB251C5DC500D41905 /* IOSMessengerTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = IOSMessengerTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		85D0C2CF251C5DC500D41905 /* IOSMessengerTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IOSMessengerTests.swift; sourceTree = "<group>"; };
@@ -202,7 +198,6 @@
 		85D0C2E9251C5E8B00D41905 /* Views */ = {
 			isa = PBXGroup;
 			children = (
-				85D0C2ED251C5ED300D41905 /* Storyboards */,
 				85D0C2C1251C5DC500D41905 /* Assets.xcassets */,
 			);
 			path = Views;
@@ -231,15 +226,6 @@
 				858D39C9251E2F2300DD1362 /* DatabaseManager.swift */,
 			);
 			path = Resources;
-			sourceTree = "<group>";
-		};
-		85D0C2ED251C5ED300D41905 /* Storyboards */ = {
-			isa = PBXGroup;
-			children = (
-				85D0C2BE251C5DC100D41905 /* Main.storyboard */,
-				85D0C2C3251C5DC500D41905 /* LaunchScreen.storyboard */,
-			);
-			path = Storyboards;
 			sourceTree = "<group>";
 		};
 		85D0C2FA251C610400D41905 /* Login */ = {
@@ -360,10 +346,8 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				85D0C2C5251C5DC500D41905 /* LaunchScreen.storyboard in Resources */,
 				85919C30251D86C500BFBE6F /* GoogleService-Info.plist in Resources */,
 				85D0C2C2251C5DC500D41905 /* Assets.xcassets in Resources */,
-				85D0C2C0251C5DC100D41905 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -535,25 +519,6 @@
 			targetProxy = 85D0C2D7251C5DC500D41905 /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
-
-/* Begin PBXVariantGroup section */
-		85D0C2BE251C5DC100D41905 /* Main.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				85D0C2BF251C5DC100D41905 /* Base */,
-			);
-			name = Main.storyboard;
-			sourceTree = "<group>";
-		};
-		85D0C2C3251C5DC500D41905 /* LaunchScreen.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				85D0C2C4251C5DC500D41905 /* Base */,
-			);
-			name = LaunchScreen.storyboard;
-			sourceTree = "<group>";
-		};
-/* End PBXVariantGroup section */
 
 /* Begin XCBuildConfiguration section */
 		85D0C2DD251C5DC500D41905 /* Debug */ = {

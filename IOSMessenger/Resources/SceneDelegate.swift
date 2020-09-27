@@ -17,7 +17,39 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         // Use this method to optionally configure and attach the UIWindow `window` to the provided UIWindowScene `scene`.
         // If using a storyboard, the `window` property will automatically be initialized and attached to the scene.
         // This delegate does not imply the connecting scene or session are new (see `application:configurationForConnectingSceneSession` instead).
-        guard let _ = (scene as? UIWindowScene) else { return }
+        guard let windowScene = (scene as? UIWindowScene) else { return }
+        
+        window = UIWindow(frame: windowScene.coordinateSpace.bounds)
+        window?.windowScene = windowScene
+        
+        window?.rootViewController = createTabBar()
+        window?.makeKeyAndVisible()
+    }
+    
+    func createChatNC() -> UINavigationController {
+        let conversationVC = ConversationViewController()
+        conversationVC.title = "Chats"
+        conversationVC.tabBarItem = UITabBarItem(title: "Chats", image: UIImage(systemName: "message"), tag: 0)
+        
+        let navController = UINavigationController(rootViewController: conversationVC)
+        navController.navigationBar.prefersLargeTitles = true
+        return navController
+    }
+    
+    func createProfileNC() -> UINavigationController {
+        let profileVC = ProfileViewController()
+        profileVC.title = "Profile"
+        profileVC.tabBarItem = UITabBarItem(title: "Profile", image: UIImage(systemName: "person"), tag: 0)
+        
+        let navController = UINavigationController(rootViewController: profileVC)
+        navController.navigationBar.prefersLargeTitles = true
+        return navController
+    }
+    
+    func createTabBar() -> UITabBarController {
+        let tabBarController = UITabBarController()
+        tabBarController.viewControllers = [createChatNC(), createProfileNC()]
+        return tabBarController
     }
 
     func sceneDidDisconnect(_ scene: UIScene) {
