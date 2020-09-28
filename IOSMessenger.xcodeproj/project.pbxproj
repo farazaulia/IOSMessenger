@@ -249,6 +249,7 @@
 				85D0C2B2251C5DC000D41905 /* Frameworks */,
 				85D0C2B3251C5DC000D41905 /* Resources */,
 				38D4A6A032CF38B5626C4DAE /* [CP] Embed Pods Frameworks */,
+				AB37062384939F7FA10B66A2 /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -287,6 +288,7 @@
 				85D0C2D3251C5DC500D41905 /* Frameworks */,
 				85D0C2D4251C5DC500D41905 /* Resources */,
 				D7D0BA5B5CC8BE01263107D9 /* [CP] Embed Pods Frameworks */,
+				B6CC25DBD3D7CA2502FEBE7C /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -449,6 +451,40 @@
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
 			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		AB37062384939F7FA10B66A2 /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-IOSMessenger/Pods-IOSMessenger-resources-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Copy Pods Resources";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-IOSMessenger/Pods-IOSMessenger-resources-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-IOSMessenger/Pods-IOSMessenger-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		B6CC25DBD3D7CA2502FEBE7C /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-IOSMessenger-IOSMessengerUITests/Pods-IOSMessenger-IOSMessengerUITests-resources-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Copy Pods Resources";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-IOSMessenger-IOSMessengerUITests/Pods-IOSMessenger-IOSMessengerUITests-resources-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-IOSMessenger-IOSMessengerUITests/Pods-IOSMessenger-IOSMessengerUITests-resources.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
 		D7D0BA5B5CC8BE01263107D9 /* [CP] Embed Pods Frameworks */ = {

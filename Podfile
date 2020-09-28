@@ -10,6 +10,9 @@ target 'IOSMessenger' do
   pod 'Firebase/Auth'
   pod 'Firebase/Database'
 
+  # Googl Sign In
+  pod 'GoogleSignIn'
+
   target 'IOSMessengerTests' do
     inherit! :search_paths
     # Pods for testing
