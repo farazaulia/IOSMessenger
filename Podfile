@@ -13,6 +13,11 @@ target 'IOSMessenger' do
   # Googl Sign In
   pod 'GoogleSignIn'
 
+  pod 'MessageKit'
+  pod 'JGProgressHUD'
+  pod 'RealmSwift'
+  pod 'SDWebImage'
+
   target 'IOSMessengerTests' do
     inherit! :search_paths
     # Pods for testing
