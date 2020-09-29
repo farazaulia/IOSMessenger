@@ -51,7 +51,29 @@ class AppDelegate: UIResponder, UIApplicationDelegate, GIDSignInDelegate {
             return
         }
         
-            DatabaseManager.shared.storeUser(with: ChatAppUser(uid: user.userID, firstName: firstName, lastName: lastName, email: email))
+        let chatUser = ChatAppUser(uid: user.userID, firstName: firstName, lastName: lastName, email: email)
+        DatabaseManager.shared.storeUser(with: chatUser) { success in
+            if success {
+                
+                if user.profile.hasImage {
+                    guard let url = user.profile.imageURL(withDimension: 200) else { return }
+                    
+                    URLSession.shared.dataTask(with: url, completionHandler: { data, _, _  in
+                        guard let data = data else { return }
+                        
+                        let fileName = chatUser.profilePictureFileName
+                        StorageManager.shared.uploadProfilePicture(with: data, fileName: fileName) { (result) in
+                            switch result {
+                            case .failure(let error):
+                                print("Storage manager error: \(error)")
+                            case .success(let downloadURL):
+                                UserDefaults.standard.set(downloadURL, forKey: "profile_picture_url")
+                            }
+                        }
+                        }).resume()
+                }
+            }
+        }
         
         guard let authentication = user.authentication else {
             print("Missing auth object off of google user")

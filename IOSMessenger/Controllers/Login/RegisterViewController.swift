@@ -113,11 +113,6 @@ class RegisterViewController: UIViewController {
         title = "Log In"
         view.backgroundColor = .white
         
-        navigationItem.rightBarButtonItem = UIBarButtonItem(title: "Register",
-                                                            style: .done,
-                                                            target: self,
-                                                            action: #selector(didTapRegister))
-        
         registerButton.addTarget(self, action: #selector(registerButtonTapped), for: .touchUpInside)
         
         emailField.delegate = self
@@ -219,8 +214,26 @@ class RegisterViewController: UIViewController {
             
             let user = result.user
             
+            let chatUser = ChatAppUser(uid: user.uid, firstName: firstName, lastName: lastName, email: email)
             
-            DatabaseManager.shared.storeUser(with: ChatAppUser(uid: user.uid, firstName: firstName, lastName: lastName, email: email))
+            DatabaseManager.shared.storeUser(with: chatUser, completion: { success in
+                if success {
+                    guard let image = self.imageView.image,
+                        let data = image.pngData() else {
+                            return
+                    }
+                    let fileName = chatUser.profilePictureFileName
+                    StorageManager.shared.uploadProfilePicture(with: data, fileName: fileName) { result in
+                        switch result {
+                        case .success(let downloadURL):
+                            UserDefaults.standard.set(downloadURL, forKey: "profile_picture_url")
+                            print(downloadURL)
+                        case .failure(let error):
+                            print("Storage manage error: \(error)")
+                        }
+                    }
+                }
+            })
             
             self.navigationController?.dismiss(animated: true, completion: nil)
         }
